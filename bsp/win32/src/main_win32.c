@@ -13,7 +13,7 @@
 #include "windows.h"
 #include <unistd.h>
 
-#define LUAT_HEAP_SIZE (1024*1024)
+#define LUAT_HEAP_SIZE (1024*1024*512)
 uint8_t luavm_heap[LUAT_HEAP_SIZE] = {0};
 
 int cmdline_argc;
