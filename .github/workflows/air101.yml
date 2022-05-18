@@ -7,11 +7,11 @@ on:
       - 'lua/**'
       - 'luat/**'
       - 'components/**'
-      - 'bsp/air101/**'
+      - 'bsp/air103/**'
   workflow_dispatch:
   repository_dispatch:
     types:
-      - webhook-101-action
+      - webhook-103-action
 
 jobs:
   build:
@@ -26,11 +26,11 @@ jobs:
         sudo add-apt-repository ppa:xmake-io/xmake -y
         sudo apt update
         sudo apt install xmake
-    - name: clone 101
+    - name: clone 103
       run: |
         sudo sh -c "curl https://raw.githubusercontent.com/kadwanev/retry/master/retry -o /usr/local/bin/retry && chmod +x /usr/local/bin/retry"
         cd ..
-        retry 'git clone --branch=master https://gitee.com/openLuat/luatos-soc-air101 air101'
+        retry 'git clone --branch=master https://gitee.com/openLuat/luatos-soc-air101 air103'
     - name: make
       run: |
         cd ../air101
@@ -45,7 +45,7 @@ jobs:
     - name: Upload artifact
       uses: actions/upload-artifact@v1
       with:
-        name: air101
+        name: air103
         path: luatosfw
     - name: report if failure
       if: always()
